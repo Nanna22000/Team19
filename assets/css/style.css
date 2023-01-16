@@ -1,0 +1,16 @@
+body {
+    background-color: #FFEDDF;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(54, 47, 42);
+    margin: 0;
+}
+
+header, footer {
+    background-color: rgb(54, 47, 42);
+    height: 50px;
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+}
