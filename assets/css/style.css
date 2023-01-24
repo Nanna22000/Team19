@@ -8,7 +8,6 @@
     text-decoration: none;
     color: white;
     padding: 20px;
-    float: center;
     font-family: 'gabrielaregular';
 }
 
@@ -53,12 +52,4 @@ h1 {
 .banner {
     position: relative;
     text-align: center;
-    color: rgb(0, 0, 0);
-    font-size: 30px;
-}
-
-.top-left {
-    position: absolute;
-    top: 8px;
-    left: 10px;
 }
