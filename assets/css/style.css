@@ -50,4 +50,15 @@ h1 {
     src: url('images/gabriela-regular-webfont.woff');
 }
 
+.banner {
+    position: relative;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+}
 
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
