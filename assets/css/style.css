@@ -18,7 +18,6 @@
 header {
     background-color: #6F5F5F;
     padding: 20px;
-    width: 100%;
   }
 
 footer {
@@ -28,7 +27,6 @@ footer {
     color: white;
     position: static;
     bottom: 0;
-    width: 100%;
     margin-top: 50px;
 }
 
