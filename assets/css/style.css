@@ -18,6 +18,7 @@
 header {
     background-color: #6F5F5F;
     padding: 20px;
+    width: 100%;
   }
 
 footer {
@@ -52,6 +53,22 @@ h1 {
 .banner {
     position: relative;
     text-align: center;
+}
+
+#cats {
+    opacity: 0.4;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+}
+
+.centered-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #5c4b4b;
+    font-size: larger;
 }
 
 #more-about-us {
