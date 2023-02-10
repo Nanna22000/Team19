@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Maija Nevalainen, Kiia Kuokkala, Nanna Santakangas">
+    <meta name="description" content="cat cafe, visitor's book">
+    <meta name="keywords" content="cats, cat, cute, tasty, drinks, snacks, hämeenlinna, hameenlinna, kitten, coffee, cafe, café">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <title>Cat Café ✿ Visitor's book</title>
 </head>
