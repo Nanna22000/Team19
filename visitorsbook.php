@@ -14,9 +14,21 @@
             <a href="aboutus.html">About us</a>
             <a href="menu.html">Menu</a>
             <a href="cats.html">Our cats</a>
-            <a href="visitorsbook.html">Visitor's book</a>
+            <a href="visitorsbook.php">Visitor's book</a>
         </div> 
     </header>
+
+    <h1>Visitor's book</h1>
+    <form action="visitorsbook.html" method="POST">
+        First name: <input type="text" name="fname"><br>
+        Last name: <input type="text" name="lname"><br>
+        Comment: <textarea name="comment"></textarea><br>
+        <input type="submit" value="post comment">
+    </form>
+
+    <?php
+
+    ?>
 
     <footer>
         <p>© Cat Café Linna</p>
