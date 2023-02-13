@@ -12,13 +12,14 @@
 </head>
 <body>
     <header>
-        <div class="topnav">
+    <div class="topnav">
             <a class="active" href="index.html">Home</a>
             <a href="aboutus.html">About us</a>
             <a href="menu.html">Menu</a>
             <a href="cats.html">Our cats</a>
             <a href="visitorsbook.php">Visitor's book</a>
-        </div> 
+            <a href="rekisteroidyajax.html">Log in</a>
+        </div>
     </header>
 
     <h1>Visitor's book</h1>
