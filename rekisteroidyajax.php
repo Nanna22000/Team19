@@ -7,7 +7,7 @@ if (!($user=tarkistaJson($json))){
 }
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 try{
-    $initials=parse_ini_file("../.ht.asetukset.ini");
+    $initials=parse_ini_string(".ht.asetukset.ini");
     $yhteys=mysqli_connect($initials["databaseserver"], $initials["username"], $initials["password"], $initials["database"]);
 }
 catch(Exception $e){

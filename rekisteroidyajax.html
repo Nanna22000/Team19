@@ -18,7 +18,7 @@ function lahetaKayttaja(lomake){
 		    document.getElementById("result").innerHTML = this.responseText;
 	  }
 	};
-	xmlhttp.open("POST", "../php/rekisteroidyajax.php", true);
+	xmlhttp.open("POST", "/rekisteroidyajax.php", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xmlhttp.send("user=" + jsonUser);	
 }
