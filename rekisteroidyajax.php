@@ -17,19 +17,17 @@ catch(Exception $e){
 
 //Tehdään sql-lause, jossa kysymysmerkeillä osoitetaan paikat
 //joihin laitetaan muuttujien arvoja
-$sql="insert into kayttaja (tunnus, salasana) values(?, SHA2(?, 256))";//sama kuin SHA2(?, 0)
 try{
-    $stmt=mysqli_prepare($yhteys, $sql);
+    $sql = "insert into kayttaja (tunnus, salasana) values(?, SHA2(?, 256))";
+    $stmt = mysqli_prepare($yhteys, $sql);
     mysqli_stmt_bind_param($stmt, 'ss', $user->tunnus, $user->salasana);
     mysqli_stmt_execute($stmt);
-    mysqli_close($yhteys);
     print $json;
 }
 catch(Exception $e){
     print "Tunnus jo olemassa tai muu virhe!";
 }
 ?>
-
 
 <?php
 function tarkistaJson($json){
@@ -42,4 +40,6 @@ function tarkistaJson($json){
     }
     return $user;
 }
+
+mysqli_close($yhteys);
 ?>
