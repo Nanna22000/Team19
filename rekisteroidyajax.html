@@ -27,7 +27,12 @@ function lahetaKayttaja(lomake){
 	xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 	  if (this.readyState == 4 && this.status == 200) {
+		if (this.responseText=="ok"){
 			window.location.assign("/kirjauduajax.html");
+		}
+		else{
+			window.alert(this.responseText);
+		}
 	  }
 	};
 	xmlhttp.open("POST", "/rekisteroidyajax.php", true);
@@ -36,15 +41,24 @@ function lahetaKayttaja(lomake){
 }
 </script>
 
+<script>
+function myFunction() {
+    var x = document.getElementById("myPassword");
+    if (x.type === "password") {
+      	x.type = "text";
+    } else {
+      	x.type = "password";
+    }
+}
+</script>
+
 <h2>Rekisteröidy</h2>
 <form id='userlomake'>
 Username: <input type='text' name='tunnus' value='' placeholder='Username...' required><br>
-Password: <input type='text' name='salasana' value='' placeholder='Password...' required><br>
+Password: <input id =myPassword type='password' name='salasana' value='' placeholder='Password...' required><br>
+<input type="checkbox" onclick="myFunction()">Show Password<br><br>
 <input type='button' name='ok' value='OK' onclick='lahetaKayttaja(this.form);'><br>
 </form>
-<p id='result'>
-Result
-</p>
 
 <footer>
 	<p>© Cat Café Linna</p>
