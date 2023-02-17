@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-<title>Log in</title>
+<title>Kirjaudu</title>
 </head>
 <body>
 
@@ -31,20 +31,20 @@ function lahetaKayttaja(lomake){
 	xmlhttp.onreadystatechange = function() {
 	  if (this.readyState == 4 && this.status == 200) {
 		    if (this.responseText=="ok"){
-		    	window.location.assign("../php/tervetuloa.php");
+		    	window.location.assign("/index.html");
 		    }
 		    else{
 			    document.getElementById("result").innerHTML = this.responseText;
 		    }
 	  }
 	};
-	xmlhttp.open("POST", "../php/kirjauduajax.php", true);
+	xmlhttp.open("POST", "/kirjauduajax.php", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xmlhttp.send("user=" + jsonUser);	
 }
 </script>
 
-<h2>Fill in!</h2>
+<h2>Kirjaudu</h2>
 <form id='userlomake'>
 Username: <input type='text' name='tunnus' value='' placeholder='Username...' required><br>
 Password: <input type='text' name='salasana' value='' placeholder='Password...' required><br>

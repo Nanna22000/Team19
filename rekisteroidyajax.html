@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<link href="assets/css/style.css" rel="stylesheet" type="text/css">
-	<title>Rekisteröityminen html</title>
+	<title>Rekisteröidy</title>
 </head>
 <body>
 	<header>
@@ -27,16 +27,16 @@ function lahetaKayttaja(lomake){
 	xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 	  if (this.readyState == 4 && this.status == 200) {
-		    document.getElementById("result").innerHTML = this.responseText;
+			window.location.assign("/kirjauduajax.html");
 	  }
 	};
 	xmlhttp.open("POST", "/rekisteroidyajax.php", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xmlhttp.send("user=" + jsonUser);	
+	xmlhttp.send("user=" + jsonUser);
 }
 </script>
 
-<h2>Fill in!</h2>
+<h2>Rekisteröidy</h2>
 <form id='userlomake'>
 Username: <input type='text' name='tunnus' value='' placeholder='Username...' required><br>
 Password: <input type='text' name='salasana' value='' placeholder='Password...' required><br>

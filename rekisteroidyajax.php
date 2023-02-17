@@ -7,8 +7,7 @@ if (!($user=tarkistaJson($json))){
 }
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 try{
-    $initials=parse_ini_file(".ht.asetukset.ini");
-    $yhteys=mysqli_connect($initials["databaseserver"], $initials["username"], $initials["password"], $initials["database"]);
+    $yhteys=mysqli_connect("db", "root", "password", "userbase");
 }
 catch(Exception $e){
     print "Yhteysvirhe";
@@ -17,18 +16,19 @@ catch(Exception $e){
 
 //Tehdään sql-lause, jossa kysymysmerkeillä osoitetaan paikat
 //joihin laitetaan muuttujien arvoja
+$sql="insert into kayttaja (tunnus, salasana) values(?, SHA2(?, 256))";//sama kuin SHA2(?, 0)
 try{
-    $sql = "insert into kayttaja (tunnus, salasana) values(?, SHA2(?, 256))";
-    $stmt = mysqli_prepare($yhteys, $sql);
+    $stmt=mysqli_prepare($yhteys, $sql);
     mysqli_stmt_bind_param($stmt, 'ss', $user->tunnus, $user->salasana);
     mysqli_stmt_execute($stmt);
-    print $json;
+    mysqli_close($yhteys);
+    header("Location:index.html");
+    exit;
 }
 catch(Exception $e){
     print "Tunnus jo olemassa tai muu virhe!";
 }
 ?>
-
 <?php
 function tarkistaJson($json){
     if (empty($json)){
@@ -40,6 +40,4 @@ function tarkistaJson($json){
     }
     return $user;
 }
-
-mysqli_close($yhteys);
 ?>
