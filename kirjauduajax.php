@@ -45,7 +45,6 @@ catch(Exception $e){
 }
 ?>
 
-
 <?php
 function tarkistaJson($json){
     if (empty($json)){
