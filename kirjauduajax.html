@@ -3,7 +3,10 @@
 <head>
 <meta charset="utf-8">
 <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-<title>Kirjaudu</title>
+<link href="assets/css/style-login.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" type="image/x-icon" href="assets/css/images/logo.png">
+<title>Cat Café ✿ Log in</title>
+
 </head>
 <body>
 
@@ -20,39 +23,43 @@
         
     </header>
 
-<script>
-function lahetaKayttaja(lomake){
-	var user=new Object();
-	user.tunnus=lomake.tunnus.value;
-	user.salasana=lomake.salasana.value;
-	var jsonUser=JSON.stringify(user);
-	
-	xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-	  if (this.readyState == 4 && this.status == 200) {
-		    if (this.responseText=="ok"){
-		    	window.location.assign("/index.html");
-		    }
-		    else{
-			    document.getElementById("result").innerHTML = this.responseText;
-		    }
-	  }
-	};
-	xmlhttp.open("POST", "/kirjauduajax.php", true);
-	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xmlhttp.send("user=" + jsonUser);	
-}
-</script>
+	<main>
 
-<h2>Kirjaudu</h2>
-<form id='userlomake'>
-Username: <input type='text' name='tunnus' value='' placeholder='Username...' required><br>
-Password: <input type='text' name='salasana' value='' placeholder='Password...' required><br>
-<input type='button' name='ok' value='Lähetä' onclick='lahetaKayttaja(this.form);'><br>
-</form>
-<p id='result'>
-Palaute tähän
-</p>
+	<script>
+	function lahetaKayttaja(lomake){
+		var user=new Object();
+		user.tunnus=lomake.tunnus.value;
+		user.salasana=lomake.salasana.value;
+		var jsonUser=JSON.stringify(user);
+		
+		xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+				if (this.responseText=="ok"){
+					window.location.assign("/index.html");
+				}
+				else{
+					document.getElementById("result").innerHTML = this.responseText;
+				}
+		}
+		};
+		xmlhttp.open("POST", "/kirjauduajax.php", true);
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xmlhttp.send("user=" + jsonUser);	
+	}
+	</script>
+
+	<div class="box">
+	<h2>✿ Log in ✿</h2>
+	<form id='userlomake'>
+		Username: <input type='text' name='tunnus' value='' placeholder='Username...' required><br>
+		Password: <input id =myPassword type='password' name='salasana' value='' placeholder='Password...' required><br><br>
+		<input type="checkbox" onclick="myFunction()">Show Password<br><br>
+		<input type='button' name='ok' value='Log in!' onclick='lahetaKayttaja(this.form);'><br>
+		</form>
+	</div>
+
+	</main>
 
 <footer>
 	<p>© Cat Café Linna</p>
