@@ -1,3 +1,12 @@
+<?php
+try{
+    $yhteys=mysqli_connect("db", "root", "password", "henkilokanta");
+}
+catch(Exception $e){
+    header("Location:juomalomake.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,8 +98,6 @@
     while ($rivi=mysqli_fetch_object($tulos)){
         print "<tr><td>$rivi->id <td>$rivi->message".
         print "<tr><td>$rivi->id <td>$rivi->username".
-        "<td><a href='./poistajuoma.php?poistettava=$rivi->id'>Poista</a>".
-        "<td><a href='./muokkaajuoma.php?muokattava=$rivi->id'>Muokkaa</a>";
     }
     print "</table>";
     //Suljetaan tietokantayhteys
