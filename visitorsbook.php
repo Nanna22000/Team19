@@ -48,8 +48,8 @@ catch(Exception $e){
         }
     }
     </script>
-    <div class="box">
         <div class="animated animatedFadeInUp fadeInUp">
+        <div class="box">
 
             <style>
                 @-webkit-keyframes fadeInUp {
