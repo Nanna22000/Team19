@@ -1,3 +1,12 @@
+<?php
+try{
+    $yhteys=mysqli_connect("db", "root", "password", "userbase");
+}
+catch(Exception $e){
+    header("Location:visitorsbook.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,21 +81,35 @@
         }
             </style>
 
-
+    <!-- Vieraskirjan lomake -->
     <h1>Visitor's book</h1>
-    <form action="visitorsbook.html" method="POST">
-        First name: <br><input type="text" name="fname"><br><br>
-        Last name: <br><input type="text" name="lname"><br><br>
-        Comment: <br><textarea name="comment"></textarea><br><br>
+    <form action="savecomment.php" method="POST">
+        Username: <br><input type="text" name="username"><br><br>
+        Comment: <br><textarea name="message"></textarea><br><br>
         <input type="submit" value="post comment">
     </form>
 
     </div>
     </div>
-</div>
+
+    <?php
+    print "<br><br>";
+    print "<table border='1'>";
+    $tulos=mysqli_query($yhteys, "select * from comment order by id");
+    while ($rivi=mysqli_fetch_object($tulos)){
+        print "<tr><td>$rivi->username";
+        print "<td><a href='./deletecomment.php?poistettava=$rivi->id'>Delete</a>";
+        print "<tr><td>$rivi->message";
+        print "<td><a href='./editcomment.php?muokattava=$rivi->id'>Edit</a>";
+    }
+    print "</table>";
+    //Suljetaan tietokantayhteys
+    mysqli_close($yhteys);
+    ?>
 
     <footer>
         <p>© Cat Café Linna</p>
     </footer>
+
 </body>
 </html>
