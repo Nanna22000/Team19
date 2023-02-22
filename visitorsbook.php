@@ -98,6 +98,8 @@ catch(Exception $e){
     while ($rivi=mysqli_fetch_object($tulos)){
         print "<tr><td>$rivi->id <td>$rivi->message".
         print "<tr><td>$rivi->id <td>$rivi->username".
+        "<td><a href='./deletecomment.php?poistettava=$rivi->id'>Poista</a>".
+        "<td><a href='./editcomment.php?muokattava=$rivi->id'>Muokkaa</a>";
     }
     print "</table>";
     //Suljetaan tietokantayhteys
