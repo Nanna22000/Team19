@@ -11,9 +11,9 @@ session_start();
     <meta name="description" content="cat cafe, about us info">
     <meta name="keywords" content="cat, kitten, coffee, cafe, café">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/style-kiia.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="assets/css/style-confirmlogin.css">
     <link rel="shortcut icon" type="image/x-icon" href="assets/css/images/logo.png">
-    <title>Cat Café ✿ About us</title>
+    <title>Cat Café ✿ Visitor's book</title>
 </head>
 <body>
 
@@ -28,20 +28,68 @@ session_start();
         </div>
     </header>
 
+    <div class="animated animatedFadeInUp fadeInUp">
+
+        <style>
+            @-webkit-keyframes fadeInUp {
+        from {
+            transform: translate3d(0,40px,0)
+        }
+    
+        to {
+            transform: translate3d(0,0,0);
+            opacity: 1
+        }
+    }
+    
+    .animated {
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-fill-mode: both
+    }
+    
+    .animatedFadeInUp {
+        opacity: 0
+    }
+    
+    .fadeInUp {
+        opacity: 0;
+        animation-name: fadeInUp;
+        -webkit-animation-name: fadeInUp;
+    }
+        </style>
+
+
 <?php
 if (!isset($_SESSION["kayttaja"])){
-    echo 'Et ole kirjautunut sisään. Kirjaudu, jotta voit jatkaa.';
-    echo "<a href='kirjauduajax.html'>Kirjaudu sisään</a>";
+    ?>
+    <div class="box">
+    <?php
+    echo "<p class='continue'>You are not logged in. To continue, please log in.</p>";
+    print "<br>";
+    echo "<a class='button' href='kirjauduajax.html'>Log in here!</a>";
+
     exit;
+    ?>
+    </div>
+    <?php
 }
+
 else {
     ?>
     <script type="text/javascript">
-    window.location.href = 'visitorsbook.html';
+    window.location.href = 'visitorsbook.php';
     </script>
     <?php
 }
 ?>
+
+</div>
+
+<footer>
+    <p>© Cat Café Linna</p>
+</footer>
 
 </body>
 </html>
