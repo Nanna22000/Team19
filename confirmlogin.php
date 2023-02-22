@@ -37,7 +37,7 @@ if (!isset($_SESSION["kayttaja"])){
 else {
     ?>
     <script type="text/javascript">
-    window.location.href = 'visitorsbook.html';
+    window.location.href = 'visitorsbook.php';
     </script>
     <?php
 }

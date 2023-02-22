@@ -1,16 +1,17 @@
 <?php
-$nimi = isset($_POST["message"]) ? $_POST["message"] : "";
+$message = isset($_POST["message"]) ? $_POST["message"] : "";
+$username = isset($_POST["username"]) ? $_POST["username"] : "";
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 try{
     $yhteys=mysqli_connect("db", "root", "password", "visitorsbook");
 }
 catch(Exception $e){
-    header("Location:visitorsbook.html");
+    header("Location:visitorsbook.php");
     exit;
 }
-if (!empty($message)) {
-    $sql = "insert into comment (message, username) values(?, SHA2(?, 256))";
-    try{
+
+if (!empty($message) || !empty($username)) {
+    $sql = "insert into comment (message, username) values(?,?)";
     //Valmistellaan sql-lause
     $stmt = mysqli_prepare($yhteys, $sql);
     //Sijoitetaan muuttujat oikeisiin paikkoihin
@@ -20,12 +21,7 @@ if (!empty($message)) {
 
     $last_id = mysqli_insert_id($yhteys);
 
-    header("Location:visitorsbook.html");
+    header("Location:visitorsbook.php");
     exit;
-    }
-    catch(Exception $e){
-        print "Virhe";
-    }
-
 }
 ?>

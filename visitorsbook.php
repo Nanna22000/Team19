@@ -1,9 +1,9 @@
 <?php
 try{
-    $yhteys=mysqli_connect("db", "root", "password", "henkilokanta");
+    $yhteys=mysqli_connect("db", "root", "password", "visitorsbook");
 }
 catch(Exception $e){
-    header("Location:juomalomake.php");
+    header("Location:visitorsbook.php");
     exit;
 }
 ?>
@@ -85,7 +85,7 @@ catch(Exception $e){
     <h1>Visitor's book</h1>
     <form action="savecomment.php" method="POST">
         Username: <br><input type="text" name="username"><br><br>
-        Comment: <br><textarea name="comment"></textarea><br><br>
+        Comment: <br><textarea name="message"></textarea><br><br>
         <input type="submit" value="post comment">
     </form>
 
@@ -97,7 +97,7 @@ catch(Exception $e){
     $tulos=mysqli_query($yhteys, "select * from comment order by id");
     while ($rivi=mysqli_fetch_object($tulos)){
         print "<tr><td>$rivi->id <td>$rivi->message".
-        print "<tr><td>$rivi->id <td>$rivi->username".
+        print "<tr><td>$rivi->id <td>$rivi->username";
     }
     print "</table>";
     //Suljetaan tietokantayhteys
