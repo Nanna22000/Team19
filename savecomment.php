@@ -2,13 +2,13 @@
 $nimi = isset($_POST["message"]) ? $_POST["message"] : "";
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 try{
-    $yhteys=mysqli_connect("db", "root", "password", "userbase");
+    $yhteys=mysqli_connect("db", "root", "password", "visitorsbook");
 }
 catch(Exception $e){
     header("Location:visitorsbook.html");
     exit;
 }
-if (!empty($nimi)) {
+if (!empty($message)) {
     $sql = "insert into comment (message, username) values(?, SHA2(?, 256))";
     try{
     //Valmistellaan sql-lause
@@ -26,5 +26,6 @@ if (!empty($nimi)) {
     catch(Exception $e){
         print "Virhe";
     }
+
 }
 ?>

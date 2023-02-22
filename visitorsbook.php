@@ -74,17 +74,32 @@
 
     <!-- Vieraskirjan lomake -->
     <h1>Visitor's book</h1>
-    <form action="visitorsbook.html" method="POST">
+    <form action="savecomment.php" method="POST">
         Username: <br><input type="text" name="username"><br><br>
         Comment: <br><textarea name="comment"></textarea><br><br>
         <input type="submit" value="post comment">
     </form>
 
     </div>
-    </div> 
+    </div>
+
+    <?php
+    print "<table border='1'>";
+    $tulos=mysqli_query($yhteys, "select * from comment order by id");
+    while ($rivi=mysqli_fetch_object($tulos)){
+        print "<tr><td>$rivi->id <td>$rivi->message".
+        print "<tr><td>$rivi->id <td>$rivi->username".
+        "<td><a href='./poistajuoma.php?poistettava=$rivi->id'>Poista</a>".
+        "<td><a href='./muokkaajuoma.php?muokattava=$rivi->id'>Muokkaa</a>";
+    }
+    print "</table>";
+    //Suljetaan tietokantayhteys
+    mysqli_close($yhteys);
+    ?>
 
     <footer>
         <p>© Cat Café Linna</p>
     </footer>
+
 </body>
 </html>
