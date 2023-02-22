@@ -27,6 +27,6 @@ mysqli_stmt_execute($stmt);
 //Suljetaan tietokantayhteys
 mysqli_close($yhteys);
 
-header("Location:savecomment.php");
+header("Location:visitorsbook.php");
 exit;
 ?>

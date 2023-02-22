@@ -93,11 +93,14 @@ catch(Exception $e){
     </div>
 
     <?php
+    print "<br><br>";
     print "<table border='1'>";
     $tulos=mysqli_query($yhteys, "select * from comment order by id");
     while ($rivi=mysqli_fetch_object($tulos)){
-        print "<tr><td>$rivi->id <td>$rivi->message".
-        print "<tr><td>$rivi->id <td>$rivi->username";
+        print "<tr><td>$rivi->username";
+        print "<td><a href='./deletecomment.php?poistettava=$rivi->id'>Delete</a>";
+        print "<tr><td>$rivi->message";
+        print "<td><a href='./editcomment.php?muokattava=$rivi->id'>Edit</a>";
     }
     print "</table>";
     //Suljetaan tietokantayhteys
