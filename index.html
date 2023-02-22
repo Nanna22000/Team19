@@ -25,8 +25,42 @@
         
     </header>
 
+    <div class="animated animatedFadeInUp fadeInUp">
+
+        <style>
+            @-webkit-keyframes fadeInUp {
+        from {
+            transform: translate3d(0,40px,0)
+        }
+    
+        to {
+            transform: translate3d(0,0,0);
+            opacity: 1
+        }
+    }
+    
+    .animated {
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-fill-mode: both
+    }
+    
+    .animatedFadeInUp {
+        opacity: 0
+    }
+    
+    .fadeInUp {
+        opacity: 0;
+        animation-name: fadeInUp;
+        -webkit-animation-name: fadeInUp;
+    }
+        </style>
+
     <div class="banner">
         <img id="cats" src="assets/css/images/cats.png" alt="two cats">
+
+        
         <div class="centered">
             <h2>✿✿✿✿✿✿</h2>
             <h2>Come enjoy tasty food with adorable cats!</h2>
@@ -39,6 +73,7 @@
     <div>
     <p id="more-about-us" style="text-align: center; color: #6F5F5F;"><a style="text-decoration: none; color: white;" href="aboutus.html">More about us</a></p>
     <p style="text-align: center; color: #6F5F5F;">| Entrance fee 5€/person |</p>
+    </div>
     </div>
 
     <footer>
