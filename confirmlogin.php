@@ -35,8 +35,11 @@ if (!isset($_SESSION["kayttaja"])){
     exit;
 }
 else {
-    $ok = "ok";
-    exit;
+    ?>
+    <script type="text/javascript">
+    window.location.href = 'visitorsbook.html';
+    </script>
+    <?php
 }
 ?>
 
