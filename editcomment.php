@@ -9,7 +9,7 @@ if (empty($muokattava)){
 
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 try{
-    $yhteys=mysqli_connect("db", "root", "password", "visitorsbook");
+    $yhteys=mysqli_connect("db", "root", "password", "userbase");
 }
 catch(Exception $e){
     header("Location:../html/yhteysvirhe.html");

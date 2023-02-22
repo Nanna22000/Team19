@@ -1,6 +1,6 @@
 <?php
 try{
-    $yhteys=mysqli_connect("db", "root", "password", "visitorsbook");
+    $yhteys=mysqli_connect("db", "root", "password", "userbase");
 }
 catch(Exception $e){
     header("Location:visitorsbook.php");
