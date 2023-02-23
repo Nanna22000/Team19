@@ -1,6 +1,9 @@
 <?php
+session_start();
+?>
+<?php
 try{
-    $yhteys=mysqli_connect("db", "root", "password", "visitorsbook");
+    $yhteys=mysqli_connect("db", "root", "password", "userbase");
 }
 catch(Exception $e){
     header("Location:visitorsbook.php");
@@ -98,8 +101,8 @@ catch(Exception $e){
     $tulos=mysqli_query($yhteys, "select * from comment order by id");
     while ($rivi=mysqli_fetch_object($tulos)){
         print "<tr><td>$rivi->username";
-        print "<td><a href='./deletecomment.php?poistettava=$rivi->id'>Delete</a>";
         print "<tr><td>$rivi->message";
+        print "<td><a href='./deletecomment.php?poistettava=$rivi->id'>Delete</a>";
         print "<td><a href='./editcomment.php?muokattava=$rivi->id'>Edit</a>";
     }
     print "</table>";
