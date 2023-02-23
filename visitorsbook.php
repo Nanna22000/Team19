@@ -96,17 +96,29 @@ catch(Exception $e){
     </div>
 
     <?php
+    $sql = "select kayttaja.usertype from kayttaja where tunnus='".$_SESSION['kayttaja']."'";
+    $result = mysqli_query($yhteys, $sql);
+    $usertype = mysqli_fetch_array($result);
+    $_SESSION['usertype'] = $usertype['usertype']; 
+
     print "<br><br>";
     print "<table border='1'>";
     $tulos=mysqli_query($yhteys, "select * from comment order by id");
-    while ($rivi=mysqli_fetch_object($tulos)){
-        print "<tr><td>$rivi->username";
-        print "<tr><td>$rivi->message";
-        print "<td><a href='./deletecomment.php?poistettava=$rivi->id'>Delete</a>";
-        print "<td><a href='./editcomment.php?muokattava=$rivi->id'>Edit</a>";
+    if ($_SESSION["usertype"]=='admin') {
+        while ($rivi=mysqli_fetch_object($tulos)){
+            print "<tr><td>$rivi->username";
+            print "<tr><td>$rivi->message";
+            print "<td><a href='./deletecomment.php?poistettava=$rivi->id'>Delete</a>";
+            print "<td><a href='./editcomment.php?muokattava=$rivi->id'>Edit</a>";
+        }
+    } else {
+        while ($rivi=mysqli_fetch_object($tulos)){
+            print "<tr><td>$rivi->username";
+            print "<tr><td>$rivi->message";
+        }
     }
+
     print "</table>";
-    //Suljetaan tietokantayhteys
     mysqli_close($yhteys);
     ?>
 
