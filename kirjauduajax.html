@@ -11,7 +11,6 @@
 <body>
 
 	<header>
-
         <div class="topnav">
             <a class="active" href="index.html">Home</a>
             <a href="aboutus.html">About us</a>
@@ -20,32 +19,43 @@
             <a href="confirmlogin.php">Visitor's book</a>
             <a href="signuplogin.html">Log in</a>
         </div>
-        
     </header>
 
-	<script>
-	function lahetaKayttaja(lomake){
-		var user=new Object();
-		user.tunnus=lomake.tunnus.value;
-		user.salasana=lomake.salasana.value;
-		var jsonUser=JSON.stringify(user);
-		
-		xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-				if (this.responseText=="ok"){
-					window.location.assign("/index.html");
-				}
-				else{
-					document.getElementById("result").innerHTML = this.responseText;
-				}
-		}
-		};
-		xmlhttp.open("POST", "/kirjauduajax.php", true);
-		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		xmlhttp.send("user=" + jsonUser);	
+<script>
+function lahetaKayttaja(lomake){
+	var user=new Object();
+	user.tunnus=lomake.tunnus.value;
+	user.salasana=lomake.salasana.value;
+	var jsonUser=JSON.stringify(user);
+	
+	xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+			if (this.responseText=="ok"){
+				window.location.assign("/index.html");
+			}
+			else{
+				window.alert(this.responseText);
+				document.getElementById("result").innerHTML = this.responseText;
+			}
 	}
-	</script>
+	};
+	xmlhttp.open("POST", "/kirjauduajax.php", true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.send("user=" + jsonUser);	
+}
+</script>
+
+<script>
+	function myFunction() {
+		var x = document.getElementById("myPassword");
+		if (x.type === "password") {
+			x.type = "text";
+		} else {
+			x.type = "password";
+		}
+	}
+</script>
 
 <!-- Sivun animaatio -->
 

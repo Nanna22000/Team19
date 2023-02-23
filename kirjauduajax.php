@@ -37,7 +37,6 @@ try{
     }
     //Suljetaan tietokantayhteys
     mysqli_close($yhteys);
-    print $json;
 }
 catch(Exception $e){
     print "Jokin virhe!";
