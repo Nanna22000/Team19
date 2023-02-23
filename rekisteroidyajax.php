@@ -22,7 +22,6 @@ try{
     mysqli_stmt_bind_param($stmt, 'ss', $user->tunnus, $user->salasana);
     mysqli_stmt_execute($stmt);
     mysqli_close($yhteys);
-    // header("Location:index.html");
     print "ok";
     exit;
 }
