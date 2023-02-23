@@ -2,6 +2,7 @@
 $message = isset($_POST["message"]) ? $_POST["message"] : "";
 $username = isset($_POST["username"]) ? $_POST["username"] : "";
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
+//Luodaan yhteys tietokantaan
 try{
     $yhteys=mysqli_connect("db", "root", "password", "userbase");
 }
@@ -10,6 +11,7 @@ catch(Exception $e){
     exit;
 }
 
+//Jos kentät eivät ole tyhjiä, siirretään arvot tietokantaan
 if (!empty($message) || !empty($username)) {
     $sql = "insert into comment (message, username) values(?,?)";
     //Valmistellaan sql-lause

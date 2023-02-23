@@ -2,6 +2,7 @@
 session_start();
 ?>
 <?php
+//Luodaan yhteys tietokantaan
 try{
     $yhteys=mysqli_connect("db", "root", "password", "userbase");
 }
@@ -36,6 +37,7 @@ catch(Exception $e){
         </div>
     </header>
 
+    <!-- Lähetetään käyttäjä visitorsbook-sivulle jos ei ilmene virheitä -->
     <script>
         function lahetaKayttaja(){
         xmlhttp = new XMLHttpRequest();
@@ -51,6 +53,7 @@ catch(Exception $e){
         }
     }
     </script>
+    <!-- Sivun animaatio -->
         <div class="animated animatedFadeInUp fadeInUp">
         <div class="box">
 
@@ -95,15 +98,19 @@ catch(Exception $e){
     </div>
     </div>
 
+
     <?php
+    //Ilmaistaan käyttäjätyyppi (user/admin)
     $sql = "select kayttaja.usertype from kayttaja where tunnus='".$_SESSION['kayttaja']."'";
     $result = mysqli_query($yhteys, $sql);
     $usertype = mysqli_fetch_array($result);
     $_SESSION['usertype'] = $usertype['usertype']; 
 
+    //Tulostetaan vieraskirjan viestit taulukkoon
     print "<br><br>";
     print "<table border='1'>";
     $tulos=mysqli_query($yhteys, "select * from comment order by id");
+    //Jos käyttäjä on kirjautunut adminina, annetaan oikeus poistaa ja muokata viestejä
     if ($_SESSION["usertype"]=='admin') {
         while ($rivi=mysqli_fetch_object($tulos)){
             print "<tr><td>$rivi->username";

@@ -28,6 +28,8 @@ session_start();
         </div>
     </header>
 
+    <!-- Sivun animaatio -->
+
     <div class="animated animatedFadeInUp fadeInUp">
 
         <style>
@@ -61,6 +63,8 @@ session_start();
         </style>
 
 
+<!-- Jos käyttäjä ei ole kirjautunut, pyydetään kirjautumaan,
+muussa tapauksessa päästetään vieraskirja-sivulle -->
 <?php
 if (!isset($_SESSION["kayttaja"])){
     ?>

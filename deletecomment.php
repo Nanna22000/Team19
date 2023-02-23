@@ -8,6 +8,7 @@ if (empty($poistettava)) {
 
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 
+//Luodaan yhteys tietokantaan
 try{
     $yhteys=mysqli_connect("db", "root", "password", "userbase");
 }
@@ -16,6 +17,7 @@ catch(Exception $e){
     exit;
 }
 
+//Poistetaan kommentti
 $sql="delete from comment where id=?";
 
 //Valmistellaan sql-lause

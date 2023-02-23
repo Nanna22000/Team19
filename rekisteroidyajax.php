@@ -1,10 +1,13 @@
 <?php
 $json=isset($_POST["user"]) ? $_POST["user"] : "";
 
+//Jos käyttäjä ei täytä kaikkia kenttiä, näytetään virheilmoitus
 if (!($user=tarkistaJson($json))){
     print "Täytä kaikki kentät";
     exit;
 }
+
+//Luodaan yhteys tietokantaan
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 try{
     $yhteys=mysqli_connect("db", "root", "password", "userbase");
@@ -22,7 +25,6 @@ try{
     mysqli_stmt_bind_param($stmt, 'ss', $user->tunnus, $user->salasana);
     mysqli_stmt_execute($stmt);
     mysqli_close($yhteys);
-    // header("Location:index.html");
     print "ok";
     exit;
 }

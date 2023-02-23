@@ -26,6 +26,8 @@
 
     </header>
 
+    <!-- Sivun animaatio -->
+
     <div class="animated animatedFadeInUp fadeInUp">
 
 <style>
@@ -68,6 +70,8 @@ if (empty($muokattava)){
 }
 
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
+
+//Luodaan yhteys tietokantaan
 try{
     $yhteys=mysqli_connect("db", "root", "password", "userbase");
 }
@@ -76,6 +80,7 @@ catch(Exception $e){
     exit;
 }
 
+//Muokataan kommentti
 $sql="select * from comment where id=?";
 $stmt=mysqli_prepare($yhteys, $sql);
 mysqli_stmt_bind_param($stmt, 'i', $muokattava);
