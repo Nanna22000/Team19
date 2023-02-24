@@ -1,4 +1,8 @@
 <?php
+if(!isset($_SESSION["kayttaja"])){
+    header("Location:kirjauduajax.html");
+    exit;
+}
 $id=isset($_POST["id"]) ? $_POST["id"] : "";
 $username=isset($_POST["username"]) ? $_POST["username"] : "";
 $message=isset($_POST["message"]) ? $_POST["message"] : "";
@@ -9,14 +13,14 @@ if (empty($id) || empty($username) || empty($message)){
     exit;
 }
 
+$tk=parse_ini_file(".ht.asetukset.ini");
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 
-//Luodaan yhteys tietokantaan
 try{
-    $yhteys=mysqli_connect("db", "root", "password", "userbase");
+    $yhteys=mysqli_connect($tk["databaseserver"], $tk["username"], $tk["password"], $tk["database"]);
 }
 catch(Exception $e){
-    header("Location:./visitorsbook.php");
+    print "Yhteysvirhe";
     exit;
 }
 
