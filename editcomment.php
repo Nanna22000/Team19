@@ -14,7 +14,7 @@ catch(Exception $e){
 }
 
 //Ilmaistaan käyttäjätyyppi (user/admin)
-$sql = "select kayttaja.usertype from kayttaja where tunnus='".$_SESSION['kayttaja']."'";
+$sql = "select team19_user.usertype from team19_user where tunnus='".$_SESSION['kayttaja']."'";
 $result = mysqli_query($yhteys, $sql);
 $usertype = mysqli_fetch_array($result);
 $_SESSION['usertype'] = $usertype['usertype'];
@@ -97,7 +97,7 @@ if (empty($muokattava)){
 }
 
 //Muokataan kommentti
-$sql="select * from comment where id=?";
+$sql="select * from team19_comment where id=?";
 $stmt=mysqli_prepare($yhteys, $sql);
 mysqli_stmt_bind_param($stmt, 'i', $muokattava);
 mysqli_stmt_execute($stmt);

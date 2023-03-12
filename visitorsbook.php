@@ -121,7 +121,7 @@ catch(Exception $e){
 
     <?php
     //Ilmaistaan käyttäjätyyppi (user/admin)
-    $sql = "select kayttaja.usertype from kayttaja where tunnus='".$_SESSION['kayttaja']."'";
+    $sql = "select team19_user.usertype from team19_user where tunnus='".$_SESSION['kayttaja']."'";
     $result = mysqli_query($yhteys, $sql);
     $usertype = mysqli_fetch_array($result);
     $_SESSION['usertype'] = $usertype['usertype']; 
@@ -129,7 +129,7 @@ catch(Exception $e){
     //Tulostetaan vieraskirjan viestit taulukkoon
     print "<br><br>";
     print "<table align='center'>";
-    $tulos=mysqli_query($yhteys, "select * from comment order by id");
+    $tulos=mysqli_query($yhteys, "select * from team19_comment order by id");
     print "<tr class='empty'><td><hr>";
     //Jos käyttäjä on kirjautunut adminina, annetaan oikeus poistaa ja muokata viestejä
     if ($_SESSION["usertype"]=='admin') {

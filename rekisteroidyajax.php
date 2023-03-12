@@ -19,7 +19,7 @@ catch(Exception $e){
 
 //Tehdään sql-lause, jossa kysymysmerkeillä osoitetaan paikat
 //joihin laitetaan muuttujien arvoja
-$sql="insert into kayttaja (tunnus, salasana) values(?, SHA2(?, 256))";//sama kuin SHA2(?, 0)
+$sql="insert into team19_user (tunnus, salasana) values(?, SHA2(?, 256))";//sama kuin SHA2(?, 0)
 try{
     $stmt=mysqli_prepare($yhteys, $sql);
     mysqli_stmt_bind_param($stmt, 'ss', $user->tunnus, $user->salasana);

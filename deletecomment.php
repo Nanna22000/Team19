@@ -14,7 +14,7 @@ catch(Exception $e){
 }
 
 //Ilmaistaan käyttäjätyyppi (user/admin)
-$sql = "select kayttaja.usertype from kayttaja where tunnus='".$_SESSION['kayttaja']."'";
+$sql = "select team19_user.usertype from team19_user where tunnus='".$_SESSION['kayttaja']."'";
 $result = mysqli_query($yhteys, $sql);
 $usertype = mysqli_fetch_array($result);
 $_SESSION['usertype'] = $usertype['usertype'];
@@ -45,7 +45,7 @@ catch(Exception $e){
 }
 
 //Poistetaan kommentti
-$sql="delete from comment where id=?";
+$sql="delete from team19_comment here id=?";
 
 //Valmistellaan sql-lause
 $stmt=mysqli_prepare($yhteys, $sql);

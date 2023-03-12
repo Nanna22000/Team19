@@ -20,7 +20,7 @@ catch(Exception $e){
 
 //Tehdään sql-lause, jossa kysymysmerkeillä osoitetaan paikat
 //joihin laitetaan muuttujien arvoja
-$sql="select * from kayttaja where tunnus=? and salasana=SHA2(?, 256)";
+$sql="select * from team19_user where tunnus=? and salasana=SHA2(?, 256)";
 try{
     //Valmistellaan sql-lause
     $stmt=mysqli_prepare($yhteys, $sql);

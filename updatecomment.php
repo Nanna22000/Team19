@@ -14,7 +14,7 @@ catch(Exception $e){
 }
 
 //Ilmaistaan käyttäjätyyppi (user/admin)
-$sql = "select kayttaja.usertype from kayttaja where tunnus='".$_SESSION['kayttaja']."'";
+$sql = "select team19_user.usertype from team19_user where tunnus='".$_SESSION['kayttaja']."'";
 $result = mysqli_query($yhteys, $sql);
 $usertype = mysqli_fetch_array($result);
 $_SESSION['usertype'] = $usertype['usertype'];
@@ -47,7 +47,7 @@ catch(Exception $e){
 }
 
 //Päivitetään viesti ja käyttäjänimi
-$sql="update comment set message=?, username=? where id=?";
+$sql="update team19_comment set message=?, username=? where id=?";
 
 $stmt=mysqli_prepare($yhteys, $sql);
 mysqli_stmt_bind_param($stmt, 'ssi', $message, $username, $id);

@@ -19,7 +19,7 @@ catch(Exception $e){
 
 //Jos kentät eivät ole tyhjiä, siirretään arvot tietokantaan
 if (!empty($message) || !empty($username)) {
-    $sql = "insert into comment (message, username) values(?,?)";
+    $sql = "insert into team19_comment (message, username) values(?,?)";
     //Valmistellaan sql-lause
     $stmt = mysqli_prepare($yhteys, $sql);
     //Sijoitetaan muuttujat oikeisiin paikkoihin
