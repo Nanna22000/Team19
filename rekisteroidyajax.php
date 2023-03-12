@@ -29,7 +29,7 @@ try{
     exit;
 }
 catch(Exception $e){
-    print "Tunnus jo olemassa tai muu virhe!";
+    
 }
 ?>
 
