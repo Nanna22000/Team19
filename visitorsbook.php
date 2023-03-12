@@ -130,6 +130,7 @@ catch(Exception $e){
     print "<br><br>";
     print "<table align='center'>";
     $tulos=mysqli_query($yhteys, "select * from comment order by id");
+    print "<tr class='empty'><td><hr>";
     //Jos käyttäjä on kirjautunut adminina, annetaan oikeus poistaa ja muokata viestejä
     if ($_SESSION["usertype"]=='admin') {
         while ($rivi=mysqli_fetch_object($tulos)){
