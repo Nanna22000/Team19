@@ -111,7 +111,7 @@ catch(Exception $e){
 
     //Tulostetaan vieraskirjan viestit taulukkoon
     print "<br><br>";
-    print "<table border='1'>";
+    print "<table align='center' border='1'>";
     $tulos=mysqli_query($yhteys, "select * from comment order by id");
     //Jos käyttäjä on kirjautunut adminina, annetaan oikeus poistaa ja muokata viestejä
     if ($_SESSION["usertype"]=='admin') {
