@@ -1,4 +1,8 @@
 <?php
+if(!isset($_SESSION["kayttaja"])) {
+    header('Location: kirjauduajax.html');
+}
+
 $message = isset($_POST["message"]) ? $_POST["message"] : "";
 $username = isset($_POST["username"]) ? $_POST["username"] : "";
 
