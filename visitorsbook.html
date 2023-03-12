@@ -125,13 +125,17 @@ catch(Exception $e){
     $result = mysqli_query($yhteys, $sql);
     $usertype = mysqli_fetch_array($result);
     $_SESSION['usertype'] = $usertype['usertype']; 
+    ?>
 
-    //Tulostetaan vieraskirjan viestit taulukkoon
-    print "<br><br>";
-    print "<table align='center'>";
+    <!-- Tulostetaan vieraskirjan viestit taulukkoon -->
+    <br><br>
+    <table align='center'>
+    <?php
     $tulos=mysqli_query($yhteys, "select * from comment order by id");
-    print "<tr class='empty'><td><hr>";
-    //Jos käyttäjä on kirjautunut adminina, annetaan oikeus poistaa ja muokata viestejä
+    ?>
+    <tr class='empty'><td><hr>
+    <!-- Jos käyttäjä on kirjautunut adminina, annetaan oikeus poistaa ja muokata viestejä -->
+    <?php
     if ($_SESSION["usertype"]=='admin') {
         while ($rivi=mysqli_fetch_object($tulos)){
             print "<tr><td>$rivi->username";
