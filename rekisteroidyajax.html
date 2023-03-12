@@ -35,7 +35,7 @@ function lahetaKayttaja(lomake){
 			window.location.assign("/kirjauduajax.html");
 		}
 		else{
-			window.location.assign("/errorsignup.html");
+			document.getElementById("error").innerHTML = "Käyttäjänimi on jo varattu tai jokin muu virhe.";
 		}
 	  }
 	};
@@ -71,6 +71,8 @@ Password: <input id =myPassword type='password' name='salasana' value='' placeho
 <input type="checkbox" onclick="myFunction()">Show password<br><br>
 <input type='button' name='ok' value='Sign up!' onclick='lahetaKayttaja(this.form);'><br>
 </form>
+
+<p id="error"></p>
 
 </div>
 

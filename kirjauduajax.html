@@ -35,7 +35,7 @@ function lahetaKayttaja(lomake){
 				window.location.assign("/index.html");
 			}
 			else{
-				window.location.assign("/errorlogin.html");
+				document.getElementById("error").innerHTML = "Salasana ei täsmää tai jokin muu virhe.";
 				// document.getElementById("result").innerHTML = this.responseText;
 			}
 	}
@@ -101,6 +101,9 @@ function lahetaKayttaja(lomake){
 		<input type="checkbox" onclick="myFunction()">Show password<br><br>
 		<input type='button' name='ok' value='Log in!' onclick='lahetaKayttaja(this.form);'><br>
 		</form>
+
+		<p id="error"></p>
+
 	</div>
 
 	<img class="pusheen" src="assets/css/images/pusheen.png">
