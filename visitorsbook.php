@@ -101,6 +101,23 @@ catch(Exception $e){
     </div>
     </div>
 
+    <style>
+      th,
+      td {
+        width: 150px;
+        text-align: center;
+        padding: 5px;
+      }
+      tr.empty td  {
+        padding: 20px;
+      }
+      hr {
+        height: 0px;
+        border: none;
+        border-top: 1px solid black;
+      }
+    </style>
+
 
     <?php
     //Ilmaistaan käyttäjätyyppi (user/admin)
@@ -111,7 +128,7 @@ catch(Exception $e){
 
     //Tulostetaan vieraskirjan viestit taulukkoon
     print "<br><br>";
-    print "<table align='center' border='1'>";
+    print "<table align='center'>";
     $tulos=mysqli_query($yhteys, "select * from comment order by id");
     //Jos käyttäjä on kirjautunut adminina, annetaan oikeus poistaa ja muokata viestejä
     if ($_SESSION["usertype"]=='admin') {
@@ -120,11 +137,13 @@ catch(Exception $e){
             print "<tr><td>$rivi->message";
             print "<td><a href='./deletecomment.php?poistettava=$rivi->id'>Delete</a>";
             print "<td><a href='./editcomment.php?muokattava=$rivi->id'>Edit</a>";
+            print "<tr class='empty'><td><hr>";
         }
     } else {
         while ($rivi=mysqli_fetch_object($tulos)){
             print "<tr><td>$rivi->username";
             print "<tr><td>$rivi->message";
+            print "<tr class='empty'><td><hr>";
         }
     }
 
